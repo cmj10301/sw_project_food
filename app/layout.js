@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div className="navbar">
           <h1 className="title">오늘의 먹거리</h1>
-          <Link href="/">Home</Link>
+          <Link href="/list">Home</Link>
           <Link href="/my_fridge">나만의 냉장고</Link>
           <Link href="/food_roulette">음식 추천 룰렛</Link>
         </div>
