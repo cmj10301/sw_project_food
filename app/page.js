@@ -8,6 +8,7 @@ export default async function Home() {
   return (
     <div>
       <ListItem result={JSON.stringify(result)}/>
+      <Link href="/write">글쓰기</Link>
     </div>
   )
 }
