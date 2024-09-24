@@ -7,8 +7,13 @@ export default async function Home() {
   let result = await db.collection('post').find().toArray();
   return (
     <div>
-      <ListItem result={JSON.stringify(result)}/>
-      <Link href="/write">글쓰기</Link>
+        <ListItem result={JSON.stringify(result)}/>
+        <Link href="/write">글쓰기</Link><br></br>
+        <form action="/api/sign" method="POST">
+            <input name="user_id" placeholder="아이디"></input>
+            <input name="user_password" placeholder="비밀번호"></input>
+            <button type="submit">회원가입</button>
+        </form>
     </div>
   )
 }
