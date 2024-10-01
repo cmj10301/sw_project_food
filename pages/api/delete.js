@@ -1,7 +1,7 @@
 import { connectDB } from "@/util/database"
 import { ObjectId } from "mongodb"
 import { getServerSession } from "next-auth"
-import { authOptions } from "../auth/[...nextauth]"
+import { authOptions } from "@/pages/api/auth/[...nextauth]"
 
 export default async function handler(요청, 응답) {
     if (요청.method == 'DELETE') {

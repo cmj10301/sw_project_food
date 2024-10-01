@@ -14,7 +14,7 @@ export default function ListItem({result}) {
                         </Link>
                         <Link href={'/edit/' + a._id}>수정</Link><br></br>
                         <span onClick={(e) =>
-                            fetch('/api/post/delete', {method : 'DELETE', body : a._id})
+                            fetch('/api/delete', {method : 'DELETE', body : a._id})
                             .then((r) => r.json())
                             .then(() => {
                                 e.target.closest('.list-item').classList.add('hidden');

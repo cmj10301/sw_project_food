@@ -71,6 +71,10 @@ a {
   margin-right: 100px;
 }
 
+.hidden {
+  display: none;
+}
+
 .heart-button {
   position: relative;
   background-color: transparent;
