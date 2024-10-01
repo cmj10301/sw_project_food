@@ -5,7 +5,6 @@ export default async function Edit(props) {
 
     const db = (await connectDB).db("forum")
     let result = await db.collection('post').findOne({_id: new ObjectId(props.params.id)})
-    console.log(result)
 
     return (
         <div className="p-20">
