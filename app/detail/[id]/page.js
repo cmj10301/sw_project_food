@@ -27,9 +27,9 @@ export default async function Detail(props) {
     
     return (
         <div className="detail_page">
-            <h4>{result.title}</h4>
-            <p></p>
-            <h4>{result.content}</h4>
+            <h2>{result.title}</h2>
+            <p>{result.content}</p>
+            <h4>재료</h4>
             {
                 result.재료.map((a,i) => {
                     return (
