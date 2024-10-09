@@ -9,4 +9,4 @@ export default async function Home() {
         <ListItem result={JSON.stringify(result)}/>
     </div>
   )
-}
+}  

@@ -2,28 +2,21 @@ import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 import { revalidatePath } from "next/cache";
 import { like } from "@/pages/api/like";
-import HeartBtn from "./heartBtn";
-
+import Link from "next/link";
+import Delete_btn from "./delete_btn";
 
 export default async function Detail(props) {
+    console.log(props.params.id)
     let db = (await connectDB).db('forum');
     let result = await db.collection('post').findOne({_id : new ObjectId(props.params.id)})
-    
-    let _id = result._id.toString();
+
+    let _id = props.params.id.toString()
 
     async function like_(formData) {
         'use server'
         like(_id,result.like)
         revalidatePath(`/detail/${props.params.id}`)
     }
-
-    async function edit(formData) {
-        
-    }
-
-    async function del(formData) {
-    }
-    
     
     return (
         <div className="detail_page">
@@ -42,16 +35,13 @@ export default async function Detail(props) {
             }
 
             <form action={like_}>
-                <HeartBtn count={result.like}></HeartBtn>
+                <button>좋아요</button>
+                <span>{result.like}</span>
             </form>
-            
-            {/* <form action={edit}>
-            </form>
+            <br/>
 
-            <form action={del}>
-            </form> */}
-
-            
+            <Link href={'/edit/' + props.params.id}>수정</Link><br/>
+            <Delete_btn id={props.params.id}></Delete_btn>
         </div>
     )
 }
